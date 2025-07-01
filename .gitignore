@@ -8,6 +8,7 @@ myenv/
 .env
 
 # Ignore only the images folder
-adminpanel/static/adminpanel/images/
+
+config/adminpanel/static/adminpanel/images/
 
 media/  
