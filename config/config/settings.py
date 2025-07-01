@@ -49,6 +49,48 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+from decouple import config
+
+# Twilio configuration
+TWILIO_ACCOUNT_SID = config('TWILIO_ACCOUNT_SID')
+TWILIO_AUTH_TOKEN = config('TWILIO_AUTH_TOKEN')
+TWILIO_PHONE_NUMBER = config('TWILIO_PHONE_NUMBER')
+
+# Email configuration
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
+
+
+
+
+# Database
+# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
+}
+
+
+
+
+
+
+
 
 
 
